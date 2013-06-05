@@ -1,0 +1,15 @@
+---
+language: cpp
+env:
+  matrix:
+  - PLATFORM=linux DEBUG=1
+
+script:
+  - $CXX helloworld.cpp -o helloworld
+  - ./helloworld
+
+before_install:
+
+compiler:
+  - clang
+  - gcc
