@@ -1,4 +1,4 @@
-# Travis CI Learning #
+# Travis CI ( Continuous Integration ) Learning #
 
 ## Travis CI 的优缺点 ##
 ### 优点 ###
@@ -61,17 +61,17 @@ Additionally, Travis sets environment variables you can use in your build, e.g. 
 
 * `TRAVIS_BRANCH`: 当前构建分支名称
 * `TRAVIS_BUILD_DIR`: 仓库在构建host机器上的绝对路径
-* `TRAVIS_BUILD_ID`: The id of the current build that Travis uses internally.
-* `TRAVIS_BUILD_NUMBER`: 当前构建ID
-* `TRAVIS_COMMIT`: The commit that the current build is testing.
-* `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push or pull request.
-* `TRAVIS_JOB_ID`: The id of the current job that Travis uses internally.
-* `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
-* `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull request, "false" if it's not a pull request.
-* `TRAVIS_SECURE_ENV_VARS`: Whether or not secure environment vars are being used. This value is either "true" or "false".
-* `TRAVIS_REPO_SLUG`: The slug (in form`: owner_name/repo_name) of the repository currently being built. (for example, "travis-ci/travis-build").
+* `TRAVIS_BUILD_ID`: Travis内部使用的当前构建的唯一ID
+* `TRAVIS_BUILD_NUMBER`: 当前构建号 e.g. 2
+* `TRAVIS_COMMIT`: 当前构建commit的SHA-1
+* `TRAVIS_COMMIT_RANGE`: 当前构建的commit范围
+* `TRAVIS_JOB_ID`: travis内部使用的当前任务ID
+* `TRAVIS_JOB_NUMBER`: 当前任务编号 e.g. 2.1
+* `TRAVIS_PULL_REQUEST`: 若是PullRequest触发的构建，则为Pull Request编号，否则为false
+* `TRAVIS_SECURE_ENV_VARS`: 值为true或者false, 是否用到了加密变量
+* `TRAVIS_REPO_SLUG`: 当前仓库，格式为owner_name/repo_name
 
-Language-specific builds expose additional environment variables representing the current version being used to run the build. Whether or not they're set depends on the language you're using.
+语言相关的变量
 
 * `TRAVIS_RUBY_VERSION`
 * `TRAVIS_JDK_VERSION`
@@ -79,7 +79,15 @@ Language-specific builds expose additional environment variables representing th
 * `TRAVIS_PHP_VERSION`
 * `TRAVIS_PYTHON_VERSION`
 
+## 使用apt安装软件依赖 ##
 
+sudo apt-get install -qq
+
+
+## 如何让github上面的项目支持travis-ci持续集成 ##
+* 用github账户登陆 [Travis-CI](https://travis-ci.org), 授权travis-ci访问github仓库
+* Accounts --> Repositories --> 开启需要支持travis-ci的仓库
+* 编写.travis.yml文件，放置项目根目录
 
 ## C 工程的CI 环境 ##
 
@@ -91,15 +99,34 @@ core GNU build toolchain (autotools, make), cmake, scons
 ```
 
 
-## 如何让github上面的项目支持travis-ci持续集成 ##
-* 用github账户登陆 [Travis-CI](https://travis-ci.org), 授权travis-ci访问github仓库
-* Accounts --> Repositories --> 开启需要支持travis-ci的仓库
-* 编写.travis.yml文件，放置项目根目录
-
 ## 如何编写.travis.yml ##
 
-### YAML 语法 ###
+参考 [Configuring your Travis CI build with .travis.yml](http://about.travis-ci.org/docs/user/build-configuration/ )
 
+* 构建生命周期
+	+ 切换到当前语言的*运行时*(比如Ruby 1.9.3 or CPP)
+    + clone 整个项目，包含更新子模块(无法在clone前执行用户script)
+    + 执行**before_install**脚本(若存在)
+    + 进入clone好的仓库目录，执行对应的安装命令（若无指定，命令依赖于当前语言）
+    + 执行**before_script**脚本(若存在)
+    + 执行并测试**script**命令（若无指定，则依赖当前语言），exit code为0表示成功，反之失败
+    + 执行**after_success/after_failure**脚本(若存在)
+    + 执行**after_script**脚本(若存在)
+
+构建结果被放置在`TRAVIS_TEST_RESULT`变量中，可用在**after_script**脚本中
+
+### YAML 语法 ###
+```yaml
+before_script:
+  - before_command_1
+  - before_command_2
+  - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS doctrine_tests;' -U postgres; fi"
+after_script:
+  - after_command_1
+  - after_command_2
+```
+### 可以用travis-lint检查对应的配置是否合法 ###
+目前还比较简陋。检查功能不强
 
 
 ### 覆盖默认的脚本命令 ###
