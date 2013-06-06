@@ -3,6 +3,8 @@ language: cpp
 env:
   matrix:
   - PLATFORM=linux DEBUG=1
+  global:
+  - secure: "Vz2/cztJT/51zB3EmYmEEhxcfPHImkKqMqsFpjwqb7w9/Iw8xg8hp7QzqZkP\nAaqJrvzEmBS2fnCdA4tT6woEOUElVkIBjuETLPq8RFz9cHfwKV6bhA0tLEId\nTkICaTGW/aTN03iEJnycYKu3ehok2AnGnlI5Q+UEPshKaabtDYM="
 
 script:
   - $CXX helloworld.cpp -o helloworld
