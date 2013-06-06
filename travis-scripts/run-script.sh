@@ -6,8 +6,8 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROJECT_ROOT="$DIR"/..
 
-
 if [ $TEST_ON_MAC"aaa" = "YES"aaa ];then
+    cd $DIR
     ./push_or_pr_to_robot.sh
 else
     cd $PROJECT_ROOT
