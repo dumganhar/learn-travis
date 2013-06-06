@@ -3,12 +3,13 @@ language: cpp
 env:
   matrix:
   - PLATFORM=linux DEBUG=1
+  - TEST_ON_MAC=YES
   global:
   - secure: "Vz2/cztJT/51zB3EmYmEEhxcfPHImkKqMqsFpjwqb7w9/Iw8xg8hp7QzqZkP\nAaqJrvzEmBS2fnCdA4tT6woEOUElVkIBjuETLPq8RFz9cHfwKV6bhA0tLEId\nTkICaTGW/aTN03iEJnycYKu3ehok2AnGnlI5Q+UEPshKaabtDYM="
+  - secure: "VEwvX9H7HA+dTKRa8JJB04Tl/2nuWDwdJgPCv/T2xRtkJ6wmAmxEdtEv7lKK\n9tp5YMjox/tFAzyPrxWSauISr81kHlSaZKLaLEl4RRdTvWXt1Px+l/8eUwFf\n1kQwPRTHoTCh6WeDwDjg7kPXvKL+tNF1/bZwwnuJn4jnfhol8hE="
 
 script:
-  - $CXX helloworld.cpp -o helloworld
-  - ./helloworld
+  - ./travis-script/run-script.sh
 
 before_install:
   - ./travis-scripts/before-install.sh
