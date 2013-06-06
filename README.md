@@ -156,13 +156,13 @@ Rubinius in 1.8 mode with FOO=bar and BAR=foo
 当有push或者PR时，默认为所有分支（除了`gh-pages`）执行构建操作
 当然这也是可以定制的:
 ```yaml
-# 黑名单
+黑名单
 branches:
   except:
     - legacy
     - experimental
 
-# 白名单
+白名单
 branches:
   only:
     - master
@@ -242,10 +242,6 @@ notifications:
 
 
 ## 加密重要数据 ##
-
-
-
-
 ### Cocos2d-x 中使用的加密 ###
 
 * `Cocos2d-x` `travis-ci`含有三组加密数据，分别是GH_USER, GH_PASSWORD, GH_EMAIL
