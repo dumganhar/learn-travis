@@ -9,7 +9,7 @@ env:
   - secure: "VEwvX9H7HA+dTKRa8JJB04Tl/2nuWDwdJgPCv/T2xRtkJ6wmAmxEdtEv7lKK\n9tp5YMjox/tFAzyPrxWSauISr81kHlSaZKLaLEl4RRdTvWXt1Px+l/8eUwFf\n1kQwPRTHoTCh6WeDwDjg7kPXvKL+tNF1/bZwwnuJn4jnfhol8hE="
 
 script:
-  - ./travis-script/run-script.sh
+  - ./travis-scripts/run-script.sh
 
 before_install:
   - ./travis-scripts/before-install.sh
