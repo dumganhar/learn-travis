@@ -9,7 +9,7 @@ script:
   - ./helloworld
 
 before_install:
-
+  - ./travis-scripts/before-install.sh
 compiler:
   - clang
   - gcc
