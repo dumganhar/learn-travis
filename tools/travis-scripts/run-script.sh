@@ -41,6 +41,11 @@ if [ "$PLATFORM"x = "linux"x ]; then
     make -j4
 fi
 
+if [ "$PLATFORM"x = "emscripten"x ]; then
+    cd $COCOS2DX_ROOT
+    DEBUG=1 make -f Makefile.emscripten -j 8
+fi
+
 if [ "$PLATFORM"x = "ios"x ]; then
     cd $COCOS2DX_ROOT/tools/travis-scripts
     ./generate-jsbindings.sh

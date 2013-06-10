@@ -5,6 +5,7 @@ env:
   - PLATFORM=emscripten DEBUG=1
 script: 
 - export PYTHON=/usr/bin/python
+- export LLVM=/usr/local/bin
 - ./tools/travis-scripts/run-script.sh
 
 before_install: 
