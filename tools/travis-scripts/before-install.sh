@@ -34,12 +34,12 @@ install_llvm()
         HOST_NAME="linux-ubuntu_12.04"
     fi
     # Download llvm3.1
-    echo "Download clang+llvm-3.1-x86_64-${HOST_NAME}.tar.gz"
-    curl -O http://llvm.org/releases/3.1/clang+llvm-3.1-x86_64-${HOST_NAME}.tar.gz
-    echo "Decompress clang+llvm-3.1-x86_64-${HOST_NAME}.tar.gz ..."
-    tar xzf clang+llvm-3.1-x86_64-${HOST_NAME}.tar.gz
+    echo "Download clang+llvm-3.2-x86_64-${HOST_NAME}.tar.gz"
+    curl -O http://llvm.org/releases/3.1/clang+llvm-3.2-x86_64-${HOST_NAME}.tar.gz
+    echo "Decompress clang+llvm-3.2-x86_64-${HOST_NAME}.tar.gz ..."
+    tar xzf clang+llvm-3.2-x86_64-${HOST_NAME}.tar.gz
     # Rename llvm
-    mv clang+llvm-3.1-x86_64-${HOST_NAME} clang+llvm-3.1
+    mv clang+llvm-3.2-x86_64-${HOST_NAME} clang+llvm-3.2
 }
 
 if [ "$GEN_JSB"x = "YES"x ]; then
@@ -70,10 +70,7 @@ if [ "$PLATFORM"x = "android"x ]; then
 fi
 
 if [ "$PLATFORM"x = "emscripten"x ]; then 
-    echo "--------- clang root----------"
-    which clang++
-    which llvm-ar
-    echo "------------------------------"
+    install_llvm
 fi
 
 if [ "$PLATFORM"x = "ios"x ]; then
