@@ -72,6 +72,7 @@ fi
 if [ "$PLATFORM"x = "emscripten"x ]; then 
     echo "--------- clang root----------"
     which clang++
+    which llvm-ar
     echo "------------------------------"
 fi
 
