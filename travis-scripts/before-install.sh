@@ -30,3 +30,6 @@ echo "TRAVIS_REPO_SLUG       = $TRAVIS_REPO_SLUG       "
 
 echo "GH_USER = ${GH_USER}"
 echo "GH_PASSWORD = ${GH_PASSWORD}"
+
+echo "PYTHON = ${PYTHON}"
+echo "LLVM = ${LLVM}"
