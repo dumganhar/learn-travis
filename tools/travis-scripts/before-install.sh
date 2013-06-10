@@ -31,7 +31,7 @@ install_llvm()
     if [ "$PLATFORM"x = "ios"x ]; then
         HOST_NAME="apple-darwin11"
     else
-        HOST_NAME="linux-ubuntu_12.04"
+        HOST_NAME="linux-ubuntu-12.04"
     fi
     # Download llvm3.1
     echo "Download clang+llvm-3.2-x86_64-${HOST_NAME}.tar.gz"
