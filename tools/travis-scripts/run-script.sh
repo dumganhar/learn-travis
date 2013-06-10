@@ -43,6 +43,8 @@ fi
 
 if [ "$PLATFORM"x = "emscripten"x ]; then
     cd $COCOS2DX_ROOT
+    export PYTHON=/usr/bin/python
+    export LLVM=$HOME/bin/clang+llvm-3.2/bin
     DEBUG=1 make -f Makefile.emscripten -j 8
 fi
 
