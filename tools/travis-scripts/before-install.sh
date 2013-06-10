@@ -69,6 +69,12 @@ if [ "$PLATFORM"x = "android"x ]; then
     install_llvm
 fi
 
+if [ "$PLATFORM"x = "emscripten"x ]; then 
+    echo "--------- clang root----------"
+    which clang++
+    echo "------------------------------"
+fi
+
 if [ "$PLATFORM"x = "ios"x ]; then
     install_android_ndk
     install_llvm
