@@ -35,7 +35,7 @@ install_llvm()
     fi
     # Download llvm3.1
     echo "Download clang+llvm-3.2-x86_64-${HOST_NAME}.tar.gz"
-    curl -O http://llvm.org/releases/3.1/clang+llvm-3.2-x86_64-${HOST_NAME}.tar.gz
+    curl -O http://llvm.org/releases/3.2/clang+llvm-3.2-x86_64-${HOST_NAME}.tar.gz
     echo "Decompress clang+llvm-3.2-x86_64-${HOST_NAME}.tar.gz ..."
     tar xzf clang+llvm-3.2-x86_64-${HOST_NAME}.tar.gz
     # Rename llvm
