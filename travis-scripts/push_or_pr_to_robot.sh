@@ -8,8 +8,8 @@ MY_PW=cc1234567890
 
 ELAPSEDSECS=`date +%s`
 #Set git user
-git config --global user.email yoursister@gmail.com
-git config --global user.name ${MY_NAME}
+git config user.email yoursister@gmail.com
+git config user.name ${MY_NAME}
 
 git checkout -B master
 git remote add upstream https://${MY_NAME}:${MY_PW}@github.com/${MY_NAME}/learn-travis.git 2> /dev/null > /dev/null
