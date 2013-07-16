@@ -43,7 +43,11 @@ sudo apt-get install gcc-4.7 g++-4.7
 which g++
 ls -lh /usr/bin/g++
 ls -lh /usr/bin/g++*
+echo "--------------------------------"
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.6
+echo "--------------------------------"
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.7 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.7
+echo "--------------------------------"
 sudo update-alternatives --config gcc
+echo "--------------------------------"
 g++ --version
