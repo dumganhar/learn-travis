@@ -46,8 +46,6 @@ ls -lh /usr/bin/g++*
 echo "--------------------------------"
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.6
 echo "--------------------------------"
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.7 40 --slave /usr/bin/g++ g++ /usr/bin/g++-4.7
-echo "--------------------------------"
-sudo update-alternatives --config gcc
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.7 90 --slave /usr/bin/g++ g++ /usr/bin/g++-4.7
 echo "--------------------------------"
 g++ --version
