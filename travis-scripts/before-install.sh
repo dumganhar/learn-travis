@@ -34,7 +34,7 @@ echo "GH_PASSWORD = ${GH_PASSWORD}"
 echo "PYTHON = ${PYTHON}"
 echo "LLVM = ${LLVM}"
 
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 sudo apt-get update
 which g++ gcc
 g++ --version
